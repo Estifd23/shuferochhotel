@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>ኢትዮጵያ የሹፌሮች ሆቴል</title>
+        <style>
+.navbar ul {
+         list-style-type: none;       
+         background-color: #333; 
+         padding: 0;
+         margin: 0;
+         display: flex;
+         justify-content:center;
+         }
+.navbar li {
+         padding: 15px 20px;
+                  }
+.navbar a {
+                  color:white;
+                  text-decoration: none;
+                  font-weight:bold;
+                  }
+.navbar a:hover {
+          color:orange;
+                  }
+body {
+   background-color:lightblue;
+   font-family: "Times New Roman",san-serif;
+                  }
+h1 {
+      color:darkblue;
+      text-align:center;
+                  }
+table {
+      width:100%;
+      border-collapse: collapse;
+                  }
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+               
+               }   
+th {
+  background-color: darkblue;
+  color: white;         
+               }
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius:10px;
+    margin-top: 20px;
+           }    
+ input[type="text"] {
+               width: 90%;
+               padding:10px;
+               margin:10px 0;
+           }
+button {
+        background-color:Green;
+        color: white;
+        padding:10px 20px;
+        border: none;
+        cursor: pointer;
+           }
+img {
+    border-radius: 50%;
+    width: 200px;
+    height:200px;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+               
+               
+           }
+ footer {
+        background-color: #222;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 50px;
+        font-size: 14px;
+           }
+           
+.social-links a {
+               color: #ffcc00;
+               text-decoration: none;
+               margin: 0 10 px;
+               
+           }
+
+        </style>
+        </head>
+        <body>
+            <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu></a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>    
+            </nav>
+            <h1 style="text-align:center;">እንኳን ወደ ሆቴላችን በደህና መጡ</h1>
+            <h3>ኢትዮጵያ የሹፌሮች ሆቴል የምግብ ዝርዝር እና ዋጋ</h3>
+            <table border="1">
+                <tr>
+                  <th>የምግቡ አይነት</th>
+                  <th>ዋጋ(በብር)</th>    
+                </tr>
+                <tr>
+                    <td>ቢዛ</td>
+                    <td>600</td>
+                </tr>
+                <tr>
+                    <td>በርገር</td>
+                    <td>800</td>
+                </tr>
+                <tr>
+                    <td>ሳንድዊች</td>
+                    <td>1000</td>
+                </tr>
+                <div style="background-color: #eee; padding: 15px; margin-top: 20px; border-radius: 5px;">
+    <strong>ጠቅላላ ሒሳብ፦ <span id="totalPrice">0</span> ብር</strong>
+</div>
+
+            </table>
+            <form>
+                <label>የሚፈልጉት የምግብ አይነት:</label><br>
+                <input type="checkbox" id="pizza" onclick="calculateTotal()"> ፒዛ
+<input type="checkbox" id="burger" onclick="calculateTotal()"> በርገር
+<input type="checkbox" id="sandwich" onclick="calculateTotal()"> ሳንድዊች
+<br><br>
+                <label>ስምዎ፡</label><br>
+<input type="text" id="userName" placeholder="ስምዎን ከዚህ ላይ ይጻፉ"><br>
+<span id="nameError" style="color: red; display: none;">እባክዎን ስምዎን ያስገቡ!</span>
+
+         <label>ስልክ ቁጥርዎ፡</label><br>
+<input type="text" id="userPhone" placeholder="ስልክ ቁጥሮን ከዚህ ላይ ይጻፉ"><br>
+<span id="phoneError" style="color: red; display: none;">እባክዎን ትክክለኛ ስልክ ቁጥር ያስገቡ!</span>
+>
+                <label>የክፍያ አማራጭ ይምረጡ፡</label><br>
+                <select id="paymentmethod" onchange="showBankDetails()" style="width:100%; padding: 10px; margin:10px 0;">
+                    <option value="">--እባክዎን ይምረጡ--</option>
+                    <option value="telebirr">ቴሌብር(telebirr)</option>
+                
+                <option value="CBE">ኢትዮጵያ ንግድ ባንክ(CBE)</option>
+                <option value ="BOA">አቢሲኒያ ባንክ(BOA)</option>
+                </select>
+                <div id="paymentdetail" style="background-color:#f0f0f0; padding:10px;    boarder-radius:5px; display:none; margin-top:10px;border:1px dashed blue; "></div>
+               <button type="button" onclick="sayThankYou()">መረጃውን ላክ</button>
+               
+            </form>
+            <p style="color:red; font-weight:bold;text-align:center;"> *እባክዎን ክፍያውን ከፈጸሙ በኋላ በቴሌግራም ደረሰኝ ይላኩ። </p>
+            <p>ስልክ ቁጥር፦ 
+            <a href="tel:+251923541666">+251923541666</a>
+            </p>
+            <p>
+                ለበለጠ መረጃ፦  <a   href="https://t.me/tebakiye_12">telegram</a>
+     
+            </p>
+            <footer>
+              <div calss="fotter-content">
+                  <p>&copy; 2025 EDF Hotel. መብቱ በህግ የተጠበቀ ነው።</p>
+                  <div class="social-links">
+                      <a href="#">Telegram</a>
+                      <a href="#">facebook</a>
+                      <a href="#">instagram</a>
+                      <a href="#">email</a>
+                  </div>
+                  <p>አድራሻ፡ መተከል/ቡለን፣ ኢትዮጵያ
+                  </p>
+              </div>  
+            </footer>
+            <script> 
+    // ይህ ኮድ ድረ-ገጹ ሲከፈት መልዕክት ያሳያል
+    alert("ወደ ኢትዮጵያ የሹፌሮች ሆቴል ድረ-ገጽ እንኳን ደህና መጡ!");
+</script>
+<script>
+    function calculateTotal() {
+    // 1. የምግቦቹን ዋጋ በሳጥን (Variable) ውስጥ ያዝነው
+    let pizzaPrice = 600;
+    let burgerPrice = 800;
+    let sandwichPrice = 1000;
+
+    // 2. ደንበኛው የመረጣቸውን ምግቦች (Checkbox) ማግኘት
+    // ማሳሰቢያ፦ እዚህ ጋር HTML ላይ ለቼክቦክሶቹ id መስጠት አለብን (ለምሳሌ id="pizza")
+    let isPizzaChecked = document.getElementById("pizza").checked;
+    let isBurgerChecked = document.getElementById("burger").checked;
+    let isSandwichChecked = document.getElementById("sandwich").checked;
+
+    let total = 0;
+
+    // 3. ምርመራ፦ 'ከሆነ' (if) ዋጋውን ደምር
+    if (isPizzaChecked) {
+        total = total + pizzaPrice;
+    }
+    if (isBurgerChecked) {
+        total = total + burgerPrice;
+    }
+    if (isSandwichChecked) {
+        total = total + sandwichPrice;
+    }
+
+    // 4. ውጤቱን በድረ-ገጹ ላይ አሳይ
+    document.getElementById("totalPrice").innerHTML = total;
+}
+
+   function sayThankYou() {
+    // 1. መረጃዎችን ከሳጥን ውስጥ ማምጣት
+    var name = document.getElementById("userName").value;
+    var phone = document.getElementById("userPhone").value;
+    
+    // 2. የማስጠንቀቂያ ቦታዎችን ማግኘት
+    var nameError = document.getElementById("nameError");
+    var phoneError = document.getElementById("phoneError");
+
+    // 3. የስም ምርመራ
+    if (name === "") {
+        nameError.style.display = "block";
+        return; // ስሙ ከሌለ እዚህ ጋር ይቁም፣ ወደ ታች አይቀጥል
+    } else {
+        nameError.style.display = "none";
+    }
+
+    // 4. የስልክ ቁጥር ምርመራ (ባዶ ከሆነ ወይም ከ 10 ቁጥር በታች ከሆነ)
+    if (phone === "" || phone.length < 10) {
+        phoneError.style.display = "block";
+        phoneError.innerHTML = "እባክዎን 10 ቁጥር ያለው ስልክ ያስገቡ!";
+        return; // ስልኩ ስህተት ከሆነ እዚህ ጋር ይቁም
+    } else {
+        phoneError.style.display = "none";
+    }
+
+    // 5. ሁለቱም ትክክል ከሆኑ ብቻ ይህ ይሠራል
+    alert("እናመሰግናለን " + name + "! ትዕዛዝዎ በስልክ ቁጥር " + phone + " ተመዝግቧል።");
+}
+
+</script>
+<script>
+function showBankDetails() {
+    // 1. ደንበኛው የመረጠውን ባንክ በሳጥን ውስጥ መያዝ
+    var choice = document.getElementById("paymentmethod").value;
+    
+    // 2. መረጃው የሚጻፍበትን ቦታ (div) ማግኘት
+    var detailBox = document.getElementById("paymentdetail");
+
+    // 3. ምርጫውን መመርመር
+    if (choice === "telebirr") {
+        detailBox.style.display = "block"; // ሳጥኑ እንዲታይ ማድረግ
+        detailBox.innerHTML = "<b>የቴሌብር ቁጥር፦</b> 0923541666 <br> <b>ስም፦</b> አትክልት ታደሰ";
+    } 
+    else if (choice === "CBE") {
+        detailBox.style.display = "block";
+        detailBox.innerHTML = "<b>የንግድ ባንክ ቁጥር፦</b> 1000298383288 <br> <b>ስም፦</b> እስቲበል ደርሶ";
+    } 
+    else if (choice === "BOA") {
+        detailBox.style.display = "block";
+        detailBox.innerHTML = "<b>የአቢሲኒያ ባንክ ቁጥር፦</b> 61960816 <br> <b>ስም፦</b> እስቲበል ደርሶ";
+    } 
+    else {
+        // ምንም ካልመረጠ ሳጥኑን ደብቅ
+        detailBox.style.display = "none";
+    }
+}
+</script>
+
+
+
+        </body>
+</html>
