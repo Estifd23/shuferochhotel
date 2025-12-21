@@ -1,2 +1,2 @@
-# Shuferochhotel
+# shuferochhotel
 የኢትዮጵያ የሹፌሮች ሆቴል የኦንላይን ምግብ ማዘዣ ድረ-ገጽ
