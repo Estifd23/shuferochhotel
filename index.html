@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ኢትዮጵያ የሹፌሮች ሆቴል</title>
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+
+.navbar ul { 
+        list-style-type: none; 
+        background-color: #333; 
+        padding: 0; 
+        margin: 0; 
+        display: flex; 
+        justify-content:center; 
+        }
+.navbar li { 
+        padding: 15px 20px; 
+        }
+.navbar a { 
+        color:white; 
+        text-decoration: none; 
+        font-weight:bold; 
+        }
+.navbar a:hover { 
+        color:orange; 
+        }
+ body { 
+         background-color:lightblue; 
+         font-family: "Times New Roman",
+         serif; 
+         }
+h1 { 
+         color:darkblue; 
+         text-align:center; 
+         }
+table { 
+         width:100%; 
+         border-collapse: collapse; 
+         background-color: white; 
+         }
+th, td { 
+         border: 1px solid #ddd; 
+         padding: 12px; 
+         text-align: center; 
+         }   
+th { 
+         background-color: darkblue; 
+         color: white; 
+         }
+form { 
+          background-color: white; 
+          padding: 20px; 
+          border-radius:10px; 
+          margin-top: 20px; 
+          }    
+input[type="text"] { 
+          width: 90%; 
+          padding:10px; 
+          margin:10px 0; 
+          }
+button { 
+         background-color:Green; 
+         color: white; 
+         padding:10px 20px; 
+         border: none; 
+         cursor: pointer; 
+         width: 100%; 
+         font-size: 16px; 
+         }
+footer { 
+         background-color: #222; 
+         color: white; 
+         text-align: center; 
+         padding: 20px 0; 
+         margin-top: 50px; 
+         font-size: 14px; 
+         }
+.social-links a { 
+         color: #ffcc00; 
+         text-decoration: none; 
+         margin: 0 10px; 
+         }
+#total-box { 
+         background-color: #eee; 
+         padding: 15px; 
+         margin-top: 20px; 
+         border-radius: 5px; 
+         text-align: center; 
+         border: 2px solid darkblue; 
+         }
+    </style>
+</head>
+<body id="home-section">
+<nav class="navbar">
+     <ul>
+       <li><a href="#home-section">Home</a></li>
+       <li><a href="#about-section">About</a></li>
+      <li><a href="#menu-section">Menu</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+        </ul>    
+    </nav>
+
+    <h1>እንኳን ወደ ሆቴላችን በደህና መጡ</h1>
+    <h3 id="menu-section">የምግብ ዝርዝር እና ዋጋ</h3>
+    
+    <table>
+        <tr>
+             <th>የምግቡ አይነት</th>
+             <th>ዋጋ(በብር)</th>
+       </tr>
+        <tr>
+            <td>ሽሮ ላላ</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>ተጋቢኖ</td>
+            <td>110</td>
+        </tr>
+        <tr>
+            <td>አይነት</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>ፖስታ በአትክልት</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>እንቁላል ፍርፍር</td>
+            <td>120</td>
+        </tr>
+        <tr>
+            <td>ጥብስ</td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>ስላሽ</td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>ዙምባራ</td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>ወሃ 2L</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>ወሃ 1L</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <div id="about-section" style="padding: 20px; background: white; margin-top: 20px; border-radius: 10px;">
+         <h2>ስለ እኛ (About Us)</h2>
+        <p>የኢትዮጵያ የሹፌሮች ሆቴል ለረጅም አመታት ጥራት ያለው ምግብ እና አገልግሎት ለደንበኞቹ ሲያቀርብ የቆየ ሆቴል ነው። አሁን ላይ ደግሞ በቴክኖሎጂ ታግዘን የምግብ ትዕዛዞችን በድረ-ገጻችን መቀበል ጀምረናል።</p>
+</div>
+
+
+    <div id="total-box">
+        <strong>ጠቅላላ ሒሳብ፦ 
+   <span id="totalPrice">0</span> ብር</strong>
+    </div>
+    <h2 id="contact-section" style="text-align: center;">ትዕዛዝዎን እዚህ ያድርጉ (Contact)</h2>
+
+
+    <form id="orderForm">
+        <label><b>የሚፈልጉትን ይምረጡና ብዛቱን ያስገቡ:</b></label><br><br>
+
+<input type="checkbox" id="shirolala" onclick="calculateTotal()"> ሽሮ ላላ(100 ብር) 
+<input type="number" id="shirolala_qty" value="1" min="1" style="width: 50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="tegabino" onclick="calculateTotal()"> ተጋቢኖ(110 ብር) 
+<input type="number" id="tegabino_qty" value="1" min="1" style="width: 50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="ayinet" onclick="calculateTotal()"> አይነት(90 ብር) 
+<input type="number" id="ayinet_qty" value="1" min="1" style="width: 50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="pastabeatikilt" onclick="calculateTotal()">ፓስታ በአትክልት(90 ብር)
+<input type="number" id="pastabeatikilt_qty" value="1" min="1" style="width:50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="enkulalfrfr" onclick="calculateTotal()">እንቁላል ፍርፍር(120)
+<input type="number" id="enkulalfrfr_qty" value="1" min="1" style="width:50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="tbs" onclick="calculateTotal()">ጥብስ(250)
+<input type="number" id="tbs_qty" value="1" min="1" style="width:50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="slash" onclick="calculateTotal()">ስላሽ(250)
+<input type="number" id="slash_qty" value="1" min="1" style="width:50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="zumbara" onclick="calculateTotal()">ዙምባራ(250)
+<input type="number" id="zumbara_qty" value="1" min="1" style="width:50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="wuha2l" onclick="calculateTotal()">ወሃ 2L(50)
+<input type="number" id="wuha2l_qty" value="1" min="1" style="width:50px;" oninput="calculateTotal()"><br>
+
+<input type="checkbox" id="wuha1l" onclick="calculateTotal()">ወሃ 1L(30)
+<input type="number" id="wuha1l_qty" value="1"
+min="1" style="width:50px;" oninput="calculateTotal()"><br>
+        <label>ስምዎ፡</label><br>
+        <input type="text" id="userName" placeholder="ስምዎን ከዚህ ላይ ይጻፉ"><br>
+
+        <label>ስልክ ቁጥርዎ፡</label><br>
+        <input type="text" id="userPhone" placeholder="09......."><br>
+
+        <label>የክፍያ አማራጭ ይምረጡ፡</label><br>
+        <select id="paymentmethod" onchange="showBankDetails()" style="width:100%; padding: 10px; margin:10px 0;">
+            <option value="">--እባክዎን ይምረጡ--</option>
+            <option value="telebirr">ቴሌብር(telebirr)</option>
+            <option value="CBE">ኢትዮጵያ ንግድ ባንክ(CBE)</option>
+            <option value="BOA">አቢሲኒያ ባንክ(BOA)</option>
+        </select>
+
+        <div id="paymentdetail" style="background-color:#f0f0f0; padding:10px; border-radius:5px; display:none; margin-top:10px; border:1px dashed blue;"></div>
+        <br>
+       <button type="button" onclick="validateAndSend()">መረጃውን ላክ</button>
+       
+    </form>
+<p style="color: red; font-weight: bold; text-align: center;">
+        * እባክዎን ክፍያውን ከፈጸሙ በኋላ በ 5 ዲቂቃ ውስጥ በቴሌግራም ደረሰኝ ይላኩ።
+    </p>
+    <div style="background-color: #fff9c4; padding: 15px; text-align: center; border: 1px solid #fbc02d; margin: 10px auto; width: 90%; border-radius: 8px;">
+    <strong>📞 የሆቴላችን ስልክ ቁጥር፦</strong> 
+    <a href="tel:0923541666" style="color: darkblue; text-decoration: none; font-weight: bold;">0923541666</a>
+</div>
+
+    <footer>
+        <p>&copy; 2025 EDF Hotel. መብቱ በህግ የተጠበቀ ነው።</p>
+        <div class="social-links">
+            <a href="https://t.me/Amalaje_21"  target="_blank">Telegram</a> | 
+            <a href="https://www.facebook.com/estifderso.23"  target="_blank">Facebook</a>
+            <p style="color: #f0f0f0; font-weight: bold; text-align: center;">አድራሻ፡ መተከል/ቡለን፣ ኢትዮጵያ</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateTotal() {
+    // ብዛቱን ከመግቢያ ሳጥኑ ማንበብ
+    let pQty = document.getElementById("shirolala_qty").value;
+    let bQty = document.getElementById("tegabino_qty").value;
+    let sQty = document.getElementById("ayinet_qty").value;
+    let cQty =
+document.getElementById("pastabeatikilt_qty").value;
+let dQty =
+document.getElementById("enkulalfrfr_qty").value;
+let fQty =
+document.getElementById("tbs_qty").value;
+let gQty = 
+document.getElementById("slash_qty").value;
+let eQty =
+document.getElementById ("zumbara_qty").value;
+let hQty =
+document.getElementById("wuha2l_qty").value;
+let nQty =
+document.getElementById("wuha1l_qty").value;
+    // ተመርጠው ከሆነ ዋጋ x ብዛት ማባዛት
+    let pPrice = document.getElementById("shirolala").checked ?  (100 * pQty) : 0;
+    let bPrice = document.getElementById("tegabino").checked ? (110 * bQty) : 0;
+    let sPrice = document.getElementById("ayinet").checked ? (90 * sQty) : 0;
+    let cprice = document.getElementById("pastabeatikilt").checked ? (90 * cQty) : 0;
+    let dprice =  document.getElementById("enkulalfrfr").checked ? (120 *dQty) : 0;
+    let fprice =
+document.getElementById("tbs").checked ? (250 * fQty) : 0;
+let gprice =
+document.getElementById("slash").checked ? (250 * gQty) : 0;
+let eprice =
+document.getElementById("zumbara"). checked ? (250 * eQty) : 0;
+let hprice =
+document.getElementById("wuha2l"). checked ? (50 * hQty) : 0;
+let nprice =
+document.getElementById("wuha1l"). checked ? (30 * nQty) : 0;
+    let total = pPrice + bPrice + sPrice + cprice + dprice + fprice + gprice + eprice + hprice + nprice;
+    document.getElementById("totalPrice").innerHTML = total;
+}
+
+
+        function showBankDetails() {
+            var choice = document.getElementById("paymentmethod").value;
+            var detailBox = document.getElementById("paymentdetail");
+            if (choice === "") { 
+            detailBox.style.display = "none"; 
+            return;
+             }
+            detailBox.style.display = "block";
+            if (choice === "telebirr") { detailBox.innerHTML = "<b>የቴሌብር ቁጥር፦</b> 0923541666 <br> <b>ስም፦</b> አትክልት ታደሰ"; } 
+            else if (choice === "CBE") { detailBox.innerHTML = "<b>የንግድ ባንክ ቁጥር፦</b> 1000298383288 <br> <b>ስም፦</b> እስቲበል ደርሶ"; } 
+            else if (choice === "BOA") { detailBox.innerHTML = "<b>የአቢሲኒያ ባንክ ቁጥር፦</b> 61960816 <br> <b>ስም፦</b> እስቲበል ደርሶ"; }
+        }
+
+        function validateAndSend() {
+            let name = document.getElementById("userName").value;
+            let phone = document.getElementById("userPhone").value;
+            let total = document.getElementById("totalPrice").innerText;
+            let payment = document.getElementById("paymentmethod").value;
+
+            let selectedItems = "";
+            if (document.getElementById("shirolala").checked) selectedItems += " ሽሮ ላላ ";
+            if (document.getElementById("tegabino").checked) selectedItems += " ተጋቢኖ ";
+            if (document.getElementById("ayinet").checked) selectedItems += " አይነት ";
+             if
+(document.getElementById("pastabeatikilt").checked) selectedItems += "ፓስታ በአትክልት";
+             if
+(document.getElementById("enkulalfrfr").checked) selectedItems += "እንቁላል ፍርፍር";
+             if
+(document.getElementById("tbs").checked) selectedItems += "ጥብስ";
+             if
+(document.getElementById("slash").checked) selectedItems += "ስላሽ";
+            if
+(document.getElementById("zumbara").checked) selectedItems += "ዙምባራ";
+           if
+(document.getElementById("wuha2l").checked) selectedItems += "ውሃ 2L";
+       if
+(document.getElementById("wuha1l").checked) selectedItems += "ውሃ 1L";
+       if (name === "") { 
+          alert("እባክዎን ስምዎን ያስገቡ!"); 
+          return; 
+          }
+       if (phone === "" || phone.length < 10) { 
+            alert("እባክዎን ትክክለኛ ስልክ ቁጥር ያስገቡ!"); 
+            return;
+             }
+     if (total === "0") { 
+     alert("እባክዎን ቢያንስ አንድ ምግብ ይምረጡ!"); 
+     return;
+      }
+
+            let token = "8501510970:AAFrco6f_c9gQogT183UnhY3FzCkj99VT0E";
+            let chat_id = "1939144760";
+            // መልዕክቱ ውስጥ ብዛቱን መጨመር
+let pQty = document.getElementById("shirolala").checked ? document.getElementById("shirolala_qty").value + " ሽሮ ላላ" : "";
+let bQty = document.getElementById("tegabino").checked ? document.getElementById("tegabino_qty").value + " ተጋቢኖ" : "";
+let sQty = document.getElementById("ayinet").checked ? document.getElementById("ayinet_qty").value + " አይነት" : "";
+let cQty =
+document.getElementById("pastabeatikilt").checked ?
+document.getElementById("pastabeatikilt_qty").value + "ፓስታ በአትክልት" : "";
+let dQty =
+document.getElementById("enkulalfrfr").checked  ?
+document.getElementById("enkulalfrfr_qty").value + "እንቁላል ፍርፍር" : "";
+let fQty =
+document.getElementById("tbs").checked ?
+document.getElementById("tbs_qty").value + "ጥብስ" : "";
+let gQty =
+document.getElementById("slash").checked ?
+document.getElementById("slash_qty").value + "ስላሽ" : "";
+let eQty =
+document.getElementById("zumbara").checked ?
+document.getElementById("zumbara_qty").value + "ዙምባራ" : "";
+let hQty =
+document.getElementById("wuha2l").checked ?
+document.getElementById("wuha2l_qty").value + "ወሃ 2L" : "";
+let nQty =
+document.getElementById("wuha1l").checked ?
+document.getElementById("wuha1l_qty").value + "ውሃ 1L" : "";
+let message = `🔔 አዲስ ትዕዛዝ!\n👤 ስም፡ ${name}\n📞 ስልክ፡ ${phone}\n📦 ትዕዛዝ፡ ${pQty} ${bQty} ${sQty} ${cQty} ${dQty} ${fQty} ${gQty} ${eQty} ${hQty} ${nQty}\n💰 ጠቅላላ፡ ${total} ብር\n💳 የክፍያ መንገድ፡ ${payment}`;
+;
+
+
+            let url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(message)}`;
+
+            fetch(url).then(response => {
+                if(response.ok) {
+                    if (payment === "telebirr") {
+                        alert("ትዕዛዝዎ ተልኳል! አሁን ክፍያ ለመፈጸም ወደ ቴሌብር App ይወሰዳሉ።");
+                        window.location.href = "telebirr://";
+                    } else {
+                        alert("እናመሰግናለን " + name + "! ትዕዛዝዎ ተልኳል። እባክዎን በገለጽነው የባንክ አካውንት ክፍያ ይፈጽሙ።");
+                        location.reload();
+                    }
+                } else {
+                    alert("ይቅርታ፣ ትዕዛዙ አልተላከም።");
+                }
+            });
+        }
+    </script>
+</body>
+</html>
